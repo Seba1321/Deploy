@@ -1,0 +1,19 @@
+#root {
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.imagen-landing {
+  width: 280px;
+  height: auto;
+  transition: transform 0.2s;
+  margin-bottom: 0px;
+  margin: -20px;
+}
+
+.imagen-landing:hover {
+  transform: scale(1.15);
+}

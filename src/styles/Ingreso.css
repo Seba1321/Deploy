@@ -1,0 +1,112 @@
+.recuadro {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.switcher {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.switcher label {
+    font-size: 18px;
+    color: #ccc;
+}
+  
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 85px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #0cc0df;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #0cc0df;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(51px);
+    -ms-transform: translateX(51px);
+    transform: translateX(51px);
+}
+
+input:checked + .recuadro {
+    background-color: #0cc0df;
+    width: 400px;
+    height: 400px;
+}
+
+.recuadro.registrarse {
+    background-color: #282424;
+    transition: all 1s ease;
+}
+
+.recuadro.volver-ingresar {
+    background-color: #5f838a;
+    transition: all 1s ease;
+}
+
+.ingreso.volver-ingresar {
+    color: #092d33;
+    font-weight: bold;
+}
+
+.ingreso.registrarse {
+    opacity: 0.5;
+}
+
+.registro.registrarse {
+    color: #0cc0df;
+    font-weight: bold;
+}
+
+.registro.volver-ingresar {
+    opacity: 0.5;
+}
+
+#usuario, #contrasena, #text, #email{
+    color: black;
+    color-scheme: white;
+}

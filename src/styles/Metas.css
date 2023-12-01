@@ -1,0 +1,13 @@
+.custom-day {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: right;
+    height: 3cm;
+  }
+  
+  
+.react-calendar {
+    height: 30cm;
+    max-width: 100%;
+  }

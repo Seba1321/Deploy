@@ -1,0 +1,69 @@
+.formulario-eventos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-height: 200px;
+    overflow: auto;
+  }
+  
+  .formulario-eventos label {
+    margin-right: 10px;
+  }
+  
+  .formulario-eventos input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .lista-eventos {
+    position: relative;
+  }
+  
+  .lista-eventos .header-lista {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .evento-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .evento-card hr {
+    margin: 5px 0;
+  }
+  
+.eventos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .evento-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    font-weight: bold;
+  }
+  
+  .evento-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
