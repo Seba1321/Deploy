@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { AuthContext } from '../auth/AuthContext';
 import axios from 'axios';
 import '../styles/MisCalendarios.css';
+import FotoCalendario from '../assets/Calendario.png';
 import { Link, useNavigate } from 'react-router-dom';
 
 const MisCalendarios = () => {
@@ -53,9 +54,14 @@ const MisCalendarios = () => {
             <div key={index} className="calendario">
                 <p>Calendario {index + 1}</p>
                 {calendarioExistente ? (
-                    <Link to={`/mis-eventos/${calendarioExistente.id}`}>
-                        <p>Existe calendario</p>
-                    </Link>
+                    <div>
+                        <Link to={`/mis-eventos/${calendarioExistente.id}`}>
+                        <div className="calendario-container">
+                            <img src={FotoCalendario} className="imagen-landing" alt="Calendario" />
+                            <p>{calendarioExistente.nombre}</p>
+                        </div>
+                        </Link>
+                    </div>
                 ) : (
                     <>
                         {calendarioAnterior ? (

@@ -3,18 +3,27 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import '../styles/MisEventos.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import moment from 'moment';
+import MyEventComponent from '../pages/ComponenteEvento';
+
 
 function MisEventos() {
   const { calendarioID } = useParams();
   const [eventos, setEventos] = useState([]);
+
   const [nuevoEvento, setNuevoEvento] = useState({
     id_calendario: calendarioID,
     fecha_inicio: '',
     nombre: '',
-    descripción: '',
+    descripcion: '',
     etiqueta: '',
     fecha_termino: '',
   });
+
+
+  const localizer = momentLocalizer(moment);
 
   useEffect(() => {
     const fetchEventos = async () => {
@@ -46,7 +55,7 @@ function MisEventos() {
           id_calendario: calendarioID,
           fecha_inicio: '',
           nombre: '',
-          descripción: '',
+          descripcion: '',
           etiqueta: '',
           fecha_termino: '',
         });
@@ -55,6 +64,7 @@ function MisEventos() {
       console.error('Error al crear evento:', error);
     }
   };
+
 
   return (
     <>
@@ -87,6 +97,20 @@ function MisEventos() {
       {/* Lista de eventos */}
       <div className="lista-eventos">
         <h1 className="header-lista">Lista de Eventos</h1>
+
+
+        <div style={{ height: 500 }}>
+          <Calendar
+            localizer={localizer}
+            events={eventos}
+            startAccessor={(evento) => new Date(evento.fecha_inicio.toString())}
+            endAccessor={(evento) => new Date(evento.fecha_termino.toString())}
+            components={{
+              event: MyEventComponent,
+            }}
+          />
+        </div>
+
         <div className="eventos-grid">
           <div className="evento-header">
             <div>Fecha de inicio</div>
@@ -104,7 +128,7 @@ function MisEventos() {
               <div>{evento.fecha_termino}</div>
             </div>
           ))}
-        </div>
+          </div>
       </div>
     </>
   );

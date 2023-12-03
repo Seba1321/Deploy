@@ -7,6 +7,7 @@ const UserLogIn = () => {
     const { setToken , setUserID } = useContext(AuthContext);
     const [usuario, setUsuario] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -19,9 +20,14 @@ const UserLogIn = () => {
                 console.log(response);
                 if (response.status === 200) {
 
-                    alert('Inicio de sesión exitoso');
+                    
+                    if (response.data.nombre.includes('1654')) {
+                        alert('Inicio de sesión de administrador');
+                        setIsAdmin(true);
+                    }else{alert('Inicio de sesión exitoso');}
                     // Redirigir a otra pagina
                     window.location.href = '/mis-calendarios';
+
 
                 } else {
                     // El inicio de sesión falló
@@ -61,6 +67,11 @@ const UserLogIn = () => {
                 <div className="botones">
                     <button className="btn-login" onClick={handleLogin}>Log In</button>
                 </div>
+                {isAdmin && (
+                    <div className="admin-message">
+                        ¡Inicio de sesión de administrador!
+                    </div>
+                )}
 
             </div>
         </form>
