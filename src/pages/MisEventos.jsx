@@ -6,12 +6,13 @@ import '../styles/MisEventos.css';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
-import MyEventComponent from '../pages/ComponenteEvento';
+import MyEventComponent from '../components/ComponenteEvento';
 
 
 function MisEventos() {
   const { calendarioID } = useParams();
   const [eventos, setEventos] = useState([]);
+  const [eventoSeleccionado, setEventoSeleccionado] = useState(null);
 
   const [nuevoEvento, setNuevoEvento] = useState({
     id_calendario: calendarioID,
@@ -65,6 +66,12 @@ function MisEventos() {
     }
   };
 
+  // NUEVO
+  const handleSelectEvent = (evento) => {
+    // Cuando se selecciona un evento, actualiza el estado para mostrar los detalles
+    setEventoSeleccionado(evento);
+  };
+
 
   return (
     <>
@@ -96,7 +103,7 @@ function MisEventos() {
 
       {/* Lista de eventos */}
       <div className="lista-eventos">
-        <h1 className="header-lista">Lista de Eventos</h1>
+        <h1 className="header-lista">Calendario de Eventos</h1>
 
 
         <div style={{ height: 500 }}>
@@ -106,12 +113,36 @@ function MisEventos() {
             startAccessor={(evento) => new Date(evento.fecha_inicio.toString())}
             endAccessor={(evento) => new Date(evento.fecha_termino.toString())}
             components={{
-              event: MyEventComponent,
+              event: MyEventComponent
             }}
+            views={['day', 'week', 'month', 'agenda']}
+            onSelectEvent={handleSelectEvent}
+            style = {{width: '100%', margin: '0 auto'}}
           />
+          
         </div>
+        <br></br>
+        <br></br>
+
+        {/* Detalles del evento seleccionado */}
+        {eventoSeleccionado && (
+          <div className="evento-seleccionado">
+            <h2>Detalles del Evento</h2>
+            <p><strong>Nombre:</strong> {eventoSeleccionado.nombre}</p>
+            <p><strong>Descripción:</strong> {eventoSeleccionado.descripción}</p>
+            <p><strong>Etiqueta:</strong> {eventoSeleccionado.etiqueta}</p>
+            <p><strong>Fecha de inicio:</strong> {eventoSeleccionado.fecha_inicio}</p>  
+            <p><strong>Fecha de término:</strong> {eventoSeleccionado.fecha_termino}</p>
+
+
+            <br></br>
+          </div>
+          
+        )}
 
         <div className="eventos-grid">
+          <h2>Lista de eventos</h2>
+
           <div className="evento-header">
             <div>Fecha de inicio</div>
             <div>Nombre</div>
@@ -119,6 +150,7 @@ function MisEventos() {
             <div>Etiqueta</div>
             <div>Fecha de término</div>
           </div>
+
           {eventos.map((evento) => (
             <div key={evento.id} className="evento-card">
               <div>{evento.fecha_inicio}</div>
