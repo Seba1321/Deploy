@@ -7,6 +7,7 @@ import MiProgreso from './pages/MiProgreso';
 import Ingreso from './pages/Ingreso';
 import MiPerfil from './pages/MiPerfil';
 import MisEventos from './pages/MisEventos';
+import MisMetas from './pages/MisMetas.jsx';
 
 function Routing() {
   return (
@@ -20,7 +21,8 @@ function Routing() {
           <Route path={'/mi-progreso'} element={<MiProgreso />} />
           <Route path={'/ingreso'} element={<Ingreso />} />
           <Route path={'/mi-perfil'} element={<MiPerfil />} />
-          <Route path="/mis-eventos/:calendarioID" element={<MisEventos />} />
+          <Route path={"/mis-eventos/:calendarioID"} element={<MisEventos />} />
+          <Route path={"/mis-metas/:metaID"} element={<MisMetas />} />
         </Routes>
       </BrowserRouter>
     </>

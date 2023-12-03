@@ -5,8 +5,7 @@
     grid-gap: 5px;
     grid-template-areas:
     "area1 area4 area4 area4"
-    "area2 area4 area4 area4"
-    "area3 area4 area4 area4";
+    "area2 area4 area4 area4";
   }
 
 .grid-item1 {
@@ -37,7 +36,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    font-size: 6em;
+    font-size: 2em;
 }
 
 .elegir-vista {
