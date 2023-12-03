@@ -1,0 +1,37 @@
+.contenedor-metas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.meta {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: calc(50% - 20px); /* 2 metas por fila */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.botones-meta {
+    text-align: center;
+}
+
+.button-agregar {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.progreso-barra {
+    height: 20px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+}
+
+.progreso-completado {
+    height: 100%;
+    background-color: #4caf50;
+}

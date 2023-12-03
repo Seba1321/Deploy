@@ -1,0 +1,20 @@
+.contenedor-objetivos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .objetivo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    width: calc(33.33% - 20px); /* 3 objetivos por fila */
+    margin-bottom: 20px;
+  }
+  
+  .nuevo-objetivo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    width: calc(33.33% - 20px); /* 3 objetivos por fila */
+  }
