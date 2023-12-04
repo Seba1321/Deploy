@@ -48,3 +48,8 @@
 .vista-contenido {
     overflow-y: auto;
 }
+
+.pagina-progreso {
+  overflow-y: auto;
+  height: 85vh; /* Ajusta según sea necesario */
+}
