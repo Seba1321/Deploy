@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import '../styles/MiProgreso.css';
 import MetaEnProgreso from './MetaEnProgreso';
 import MetaCompletada from './MetaCompletada';
-import calcularProgreso from '../functions/calcularProgreso';
 
 function VistaContenido({ vista, metas }) {
   switch (vista) {
     case 'en-progreso':
       return (
         <div>
-          <h2>Metas en Progreso</h2>
           {metas && metas.length > 0 ? (
             metas
               .filter((meta) => meta.status === 'progreso')
@@ -24,10 +22,9 @@ function VistaContenido({ vista, metas }) {
     case 'completados':
       return (
         <div>
-          <h2>Metas Completadas</h2>
           {metas && metas.length > 0 ? (
             metas
-              .filter((meta) => meta.status === 'completada')
+              .filter((meta) => meta.status === 'completa')
               .map((meta) => (
                 <MetaCompletada key={meta.id} meta={meta} />
               ))
@@ -41,7 +38,7 @@ function VistaContenido({ vista, metas }) {
   }
 }
 
-function VistaProgreso() {
+function VistaProgreso({ metas }) {
   const [vista, setVista] = useState('default');
 
   const cambiarVista = (nuevaVista) => {
@@ -64,7 +61,8 @@ function VistaProgreso() {
         </div>
         <div className="grid-item4">
           <div className="vista-contenido">
-            <VistaContenido vista={vista} />
+            {/* Pasa las metas como propiedades a VistaContenido */}
+            {vista !== 'default' && <VistaContenido vista={vista} metas={metas} />}
           </div>
         </div>
       </div>

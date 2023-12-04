@@ -28,9 +28,11 @@ function MiProgreso() {
 
   return (
     <>
-      <Navbar />
-      <VistaProgreso metas={metas} />
-      <VistaMetas />
+      <div className="pagina-progreso">
+        <Navbar />
+        <VistaProgreso metas={metas} />
+        <VistaMetas />
+      </div>
     </>
   );
 }

@@ -1,0 +1,10 @@
+.barra-progreso {
+    background-color: #ddd;
+    height: 20px;
+    width: 100%;
+  }
+  
+  .progreso {
+    height: 100%;
+    background-color: #4caf50;
+  }
